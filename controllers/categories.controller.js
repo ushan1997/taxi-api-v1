@@ -63,4 +63,5 @@ router.get('/:type/:duration' ,async (req,res)=>{
    
 })
 
+
 module.exports=router;
