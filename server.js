@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const {mongo_url} = require('./dbconfig')
-const vehiclesController = require('./controllers/vehicles.controller')
+const vehicleRoutes = require('./routes/vehicles.routes')
+//const vehiclesController = require('./controllers/vehicles.controller')
 const categoriesController = require('./controllers/categories.controller')
 const bodyParser = require('body-parser')
 const app = express();
@@ -21,10 +22,14 @@ if(error){
 }
 });
 
+function getValue(){
 app.route('/').get((req, res)=>{
     res.send("dfdf")
 })
-app.use('/vehicles',vehiclesController)
+}
+getValue();
+
+app.use('/vehicles',vehicleRoutes())
 app.use('/categories',categoriesController)
 
 mongoose.connection.once('open',() =>{
@@ -35,4 +40,5 @@ app.listen(PORT, ()=>{
     console.log("Server is running port "+PORT)
 })
  
+
 //Run code=> npm run nodemon

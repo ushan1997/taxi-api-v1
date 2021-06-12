@@ -6,7 +6,8 @@
   "scripts": {
     "hmr": "nodemon index.js",
     "nodemon": "npm run hmr",
-     "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest --testEnvironment=node --runInBand ./tests"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.12",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4",
+    "supertest": "^6.1.3"
   }
 }
